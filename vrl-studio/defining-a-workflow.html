@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/vrl-documentation.css"/>
+</head>
+<body>
+<h1 id="definingaworkflow">Defining a Workflow</h1>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+<li>VRL-Studio &gt;= 4.0.x</li>
+<li>VRL &gt;= 0.4.1</li>
+</ul>
+
+<h3 id="dependson">Depends on</h3>
+
+<p><a href="creating-your-first-project.html">Creating Your First Project</a></p>
+
+<h2 id="contents">Contents</h2>
+
+<p>In this tutorial you will learn how to</p>
+
+<ul>
+<li>add methods to an component instance</li>
+<li>define control flows</li>
+<li>define dataflows</li>
+</ul>
+
+<h2 id="difficultylevel">Difficulty Level</h2>
+
+<h3 id="difficultylevel">Difficulty Level</h3>
+
+<p>Beginner</p>
+
+<h2 id="creatinganewproject">Creating a New Project</h2>
+
+<ol>
+<li>Start VRL-Studio</li>
+<li>If a dialog shows up, that asks whether to create or load project, click <code>Cancel</code>.</li>
+<li>Click on <code>File-&gt;New-Project</code></li>
+<li>A file dialog will appear. Choose the destination of your project.</li>
+</ol>
+
+<p>The displayed content should look like this:</p>
+
+<figure>
+<img src="resources/img/empty-project-01.png" alt="Empty Project" id="emptyproject" style="width:450px;" />
+<figcaption>Empty Project</figcaption></figure>
+
+
+
+<h2 id="addingacomponent">Adding a component</h2>
+
+<p>First, right click on the canvas and click on <code>Code Templates-&gt;Counter</code> (see Figure <a href="resources/img/code-templates-01.png">Code Templates</a>)</p>
+
+<figure>
+<img src="resources/img/code-templates-01.png" alt="Code Templates" id="codetemplates" style="width:450px;" />
+<figcaption>Code Templates</figcaption></figure>
+
+
+
+<p>Compile the code by pressing on the <em>Compile</em> button. Now, open the <em>Component Management</em> window, add the <em>Counter</em> component to the canvas and close the code window. The desired result is shown in Figure <a href="resources/img/counter-component-01.png">Counter Component</a>.</p>
+
+<figure>
+<img src="resources/img/counter-component-01.png" alt="Counter Component" id="countercomponent" style="width:450px;" />
+<figcaption>Counter Component</figcaption></figure>
+
+
+
+<h2 id="addingmethods">Adding Methods</h2>
+
+<p>If a component class declares more than one method they are usually not shown in the component window. To add a method click on the drop down box, choose a method and click on the <em>add</em> button. Add the following methods:</p>
+
+<ul>
+<li>reset()</li>
+<li>inc()</li>
+<li>getV()</li>
+</ul>
+
+<p>The desired result is shown in Figure <a href="resources/img/counter-component-02.png">Counter Methods</a>.</p>
+
+<figure>
+<img src="resources/img/counter-component-02.png" alt="Counter Methods" id="countermethods" style="width:450px;" />
+<figcaption>Counter Methods</figcaption></figure>
+
+
+
+<h2 id="addingcomponentstothecontrolflow">Adding Components to the Control Flow</h2>
+
+<p>To add the <em>Counter</em> object to the control flow drag the end of the yellow connection from the <em>Stop</em> object to the control flow input of the the <em>Counter</em> object (see Figure <a href="resources/img/move-control-flow-01.png">Move Control Flow Connection</a>).</p>
+
+<figure>
+<img src="resources/img/move-control-flow-01.png" alt="Move Control Flow Connection" id="movecontrolflowconnection" style="width:450px;" />
+<figcaption>Move Control Flow Connection</figcaption></figure>
+
+
+
+<p>To complete the control flow drag a connection from the control flow output of the <em>Counter</em> object to the <em>Stop</em> object. To do so, first move the <em>Stop</em> object from the top to the bottom (see Figure ). Next, drag a connection from the control flow output of the <em>Counter</em> object to the <em>Stop</em> object (see Figure <a href="resources/img/create-control-flow-connection-01.png">Create Connection</a>).</p>
+
+<figure>
+<img src="resources/img/create-control-flow-connection-01.png" alt="Create Connection" id="createconnection" style="width:450px;" />
+<figcaption>Create Connection</figcaption></figure>
+
+
+
+<h2 id="executingthecontrolflow">Executing the Control Flow</h2>
+
+<p>The control flow executes the following methods:</p>
+
+<pre><code>Counter counter = new Counter()
+counter.reset()
+counter.inc()
+counter.getV()
+</code></pre>
+
+<p>Click on the <em>Start</em> button to execute the control flow. The method <code>getV()</code> will return <code>1</code>.</p>
+
+<h2 id="furtherreading">Further Reading</h2>
+
+<p>&#8211;</p>
+</body>
+</html>

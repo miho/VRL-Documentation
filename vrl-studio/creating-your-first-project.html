@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/vrl-documentation.css"/>
+</head>
+<body>
+<h1 id="creatingyourfirstproject">Creating Your First Project</h1>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+<li>VRL-Studio &gt;= 4.0.x</li>
+<li>VRL &gt;= 0.4.1</li>
+</ul>
+
+<h3 id="dependson">Depends on</h3>
+
+<p><a href="what-is-vrl-studio.html">What is VRL-Studio</a></p>
+
+<h2 id="contents">Contents</h2>
+
+<p>In this tutorial you will learn how to</p>
+
+<ul>
+<li>create a project</li>
+<li>compile source code</li>
+<li>add components to the canvas</li>
+<li>invoking methods</li>
+</ul>
+
+<h2 id="difficultylevel">Difficulty Level</h2>
+
+<h3 id="difficultylevel">Difficulty Level</h3>
+
+<p>Beginner</p>
+
+<h2 id="creatinganewproject">Creating a New Project</h2>
+
+<ol>
+<li>Start VRL-Studio</li>
+<li>If a dialog shows up, that asks whether to create or load project, click <code>Cancel</code>.</li>
+<li>Go to <code>File-&gt;New-Project from Template-&gt;VRL-Tutorial-1</code></li>
+<li>A file dialog will appear. Choose the destination of your project.</li>
+</ol>
+
+<p>The displayed content should look like this:</p>
+
+<figure>
+<img src="resources/img/canvas-with-code-01.png" alt="Tutorial Project 1" id="tutorialproject1" style="width:450px;" />
+<figcaption>Tutorial Project 1</figcaption></figure>
+
+
+
+<h2 id="creatingacomponent">Creating a Component</h2>
+
+<p>In Figure <a href="resources/img/canvas-with-code-01.png">Tutorial Project 1</a> the content of the tutorial project is shown. <!--For an overview of the user interface of VRL-Studio see **${USER_INTERFACE}**.--></p>
+
+<h3 id="step1">Step 1</h3>
+
+<p>To create your first component click on the <em>compile</em> button: </p>
+
+<figure>
+<img src="resources/img/compile-01.png" alt="Step 1: Compile" id="step1:compile" style="width:450px;" />
+<figcaption>Step 1: Compile</figcaption></figure>
+
+
+
+<p>The window should turn dark for a short while. VRL-Studio is compiling the code. After that, a success message will be shown.</p>
+
+<blockquote>
+<p><strong>Note:</strong> If the window turns dark VRL-Studio is busy and cannot process user input. </p>
+</blockquote>
+
+<h3 id="step2">Step 2</h3>
+
+<p>To display the component on the <em>canvas</em> open the component management window. To do so, press <code>CTRL+SPACE</code>. A window (<em>Manage Components</em>) should appear:</p>
+
+<figure>
+<img src="resources/img/component-management-01.png" alt="Step 2: Component Management 1" id="step2:componentmanagement1" style="width:450px;" />
+<figcaption>Step 2: Component Management 1</figcaption></figure>
+
+
+
+<p>To add the component to the <em>canvas</em> click on the custom category:</p>
+
+<figure>
+<img src="resources/img/component-management-02.png" alt="Step 2: Component Management 2" id="step2:componentmanagement2" style="width:450px;" />
+<figcaption>Step 2: Component Management 2</figcaption></figure>
+
+
+
+<p>Now drag the <em>Add Integers</em> component to the canvas:</p>
+
+<figure>
+<img src="resources/img/component-management-03.png" alt="Step 2: Component Management 3" id="step2:componentmanagement3" style="width:450px;" />
+<figcaption>Step 2: Component Management 3</figcaption></figure>
+
+
+
+<p>At the destination of the drag gesture a window will appear after releasing the mouse button. The new window is the visual representation of component <em>Add Integers</em>.</p>
+
+<!--## Understanding the Visualization ##
+
+If you are not interested in programming with VRL-Studio, skip this section and continue with [Invoking Methods].
+
+First, recall the source code:
+    
+    @ComponentInfo(name="Add Integers", category="Custom")
+    class AddIntegers implements Serializable {
+
+        private static final long serialVersionUID=1;
+
+        public Integer add(Integer a, Integer b){
+            return a+b;
+        }
+    }
+
+The first line `@ComponentInfo(name="Add Integers", category="Custom")` defines the component. Each component has at least a name and a category and optionally a component description. In the *Component Management Window*  each component is identified by its category and name. Component descriptions are accessible via *tooltips*.
+
+After the component info the component class is defined. A component that shall be visualized must implement the `Serializable` interface and define a `serialVersionUID`.
+
+It contains one method `add()` that takes two integer values `a` and `b` and returns the result of `a+b`.-->
+
+<h2 id="invokingmethods">Invoking Methods</h2>
+
+<p>Enter values to the input visualizations of the component as shown in Figure <a href="resources/img/component-visualization-01.png">Parameter Visualization</a>. Do not try to enter values to the output.</p>
+
+<figure>
+<img src="resources/img/component-visualization-01.png" alt="Parameter Visualization" id="parametervisualization" style="width:450px;" />
+<figcaption>Parameter Visualization</figcaption></figure>
+
+
+
+<p>Click on the <em>invoke</em> button to invoke the method <code>add(Integer a, Integer b)</code> (see Figure <a href="resources/img/method-invocation-01.png">Method Invocation</a>).</p>
+
+<figure>
+<img src="resources/img/method-invocation-01.png" alt="Method Invocation" id="methodinvocation" style="width:450px;" />
+<figcaption>Method Invocation</figcaption></figure>
+
+
+
+<h2 id="furtherreading">Further Reading</h2>
+
+<p>&#8211;</p>
+</body>
+</html>

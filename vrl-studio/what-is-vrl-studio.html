@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/vrl-documentation.css"/>
+</head>
+<body>
+<h1 id="whatisvrl-studio">What is VRL-Studio?</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>VRL-Studio is an innovative Integrated Development Environment (IDE) based on the Java Platform that combines both visual and text-based programming. In contrast to many other Development Environments VRL-Studio Projects are fully functional programs that are developed at run-time. This makes it an ideal environment for rapid prototyping, teaching and experimentation.</p>
+
+<p>A VRL-Project is basically a Java Library (.jar-File) that contains visually defined workflows, source code, compiled classes and optionally project related resources. Each project is under revision control and contains a complete project history that contains all versions of the project.</p>
+
+<p>VRL-Studio is based on the Visual Reflection Library (VRL). VRL enables declarative and fully automated creation of graphical user interfaces from Java objects. To accomplish that, VRL uses the information accessible via the Java Reflection API.</p>
+
+<p>In addition to the automatic generation of user interfaces VRL-Studio supports the definition of <em>data-flow</em> and <em>control-flow</em> and allows fora certain degree of visual programming.</p>
+
+<p>For text-based programming the language Groovy <a href="#fn:1" id="fnref:1" title="see footnote" class="footnote">[1]</a> is used. It supports static typing, dynamic typing and meta programming. The syntax of Groovy is based on Java. Almost any Java code will just work without any changes. Even though Groovy is often used as scripting language, it provides a compiler that creates byte code that is fully compatible with the JVM. Therefore, Groovy classes are accessible via the Java Reflection API.</p>
+
+<p>Figure <a href="resources/img/functionplotter01.png">Function Plotter</a> demonstrates some capabilities of VRL.</p>
+
+<figure>
+<img src="resources/img/functionplotter01.png" alt="Function Plotter" id="functionplotter" style="width:450px;" />
+<figcaption>Function Plotter</figcaption></figure>
+
+
+
+<h2 id="vrldeclarativeuidevelopment">VRL &amp; Declarative UI Development</h2>
+
+<p>VRL provides three types of visual components (see Figure <a href="resources/img/component-types01.png">Component Types</a>) . An object representation is a container, comparable to a program window that can group several child components. A method representation is a container component inside an object representation. It can also group child components and provides elements for calling the represented method. To represent variable data VRL provides type representations. In most cases they allow interaction with the visualized data.</p>
+
+<figure>
+<img src="resources/img/component-types01.png" alt="Component Types" id="componenttypes" style="width:450px;" />
+<figcaption>Component Types</figcaption></figure>
+
+
+
+<p>To create a graphical user interface in VRL it is only necessary to specify its functionality.</p>
+
+<h3 id="example">Example</h3>
+
+<p>The following code defines a simple Java/Groovy class that provides a method that adds two integer numbers.</p>
+
+<pre><code>class AddIntegers {
+    public Integer add( Integer a , Integer b) {
+        return a+b;
+    }
+}
+</code></pre>
+
+<p>To create a VRL interface for this class no additional code is required. </p>
+
+<figure>
+<img src="resources/img/add-integers-01.png" alt="Add Integers" id="addintegers" style="width:450px;" />
+<figcaption>Add Integers</figcaption></figure>
+
+
+
+<p>Figure <a href="resources/img/add-integers-01.png">Add Integers</a> shows how to define the interface in VRL-Studio.</p>
+
+<p>Manually creating the user interface with Java is much more complicated. Equivalent Java code <a href="#fn:2" id="fnref:2" title="see footnote" class="footnote">[2]</a>:</p>
+
+<pre><code>public class Main {
+    public static void main( String [] args ) {
+        javax.swing.JFrame frame = new javax.swing.JFrame(”Add Integers”);
+        frame.setLayout(new java.awt.GridLayout());
+        final javax.swing.JTextField input1 = new javax.swing.JTextField();
+        final javax.swing.JTextField input2 = new javax.swing.JTextField();
+        final javax.swing.JTextField output = new javax.swing.JTextField();
+        frame.add(new javax.swing.JLabel(”Integer”));
+        frame.add( input1 );
+        frame.add(new javax.swing.JLabel(”Integer”));
+        frame.add( input2 );
+        frame.add(new javax.swing.JLabel(”Result”));
+        frame.add( output );
+        javax.swing.JButton btn = new javax.swing.JButton(”invoke”);
+        btn.addActionListener (new java.awt.event.ActionListener() {
+            public void actionPerformed ( java.awt.event.ActionEvent e ) {
+                output.setText (new Integer (new Integer( input1.getText()) +
+                new Integer(input2.getText())).toString());
+            }
+        });
+        frame.add( btn ) ;
+        frame.pack( ) ;
+        frame.setVisible (true );
+    }
+}
+</code></pre>
+
+<h2 id="furtherreading">Further Reading</h2>
+
+<p>For an introduction on how to create projects, read the tutorial <a href="creating-your-first-project.html">Creating Your First Project</a>.</p>
+
+<p>For an example projects look at the VRL tutorial project. Create a new project from template via
+Menu:<br> <code>File-&gt;New Project from Template-&gt;VRL-Tutorial-1</code>.</p>
+
+<div class="footnotes">
+<hr />
+<ol>
+
+<li id="fn:1">
+<p><a href=http://groovy.codehaus.org>http://groovy.codehaus.org</a> <a href="#fnref:1" title="return to article" class="reversefootnote">&#160;&#8617;</a></p>
+</li>
+
+<li id="fn:2">
+<p>not necessarily the shortest possible implementation <a href="#fnref:2" title="return to article" class="reversefootnote">&#160;&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>
