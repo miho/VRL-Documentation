@@ -100,7 +100,7 @@ To change the order of the methods of the *Counter*  object you can drag them up
 
 [Change Method Order]: resources/img/change-method-order-01.png width=450px
 
-After that the *Counter* component should look as shown in Figure [Changed Method Order].
+If you click the *Start* button again `getV()` returns `0`. The *Counter* component should look as shown in Figure [Changed Method Order].
 
 ![Changed Method Order][]
 
