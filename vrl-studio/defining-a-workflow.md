@@ -15,9 +15,9 @@ CSS:	resources/css/vrl-documentation.css
 
 In this tutorial you will learn how to
 
-- add methods to an component instance
+- add methods to a component instance
 - define control flows
-- define dataflows
+- define data flows
 
 ## Difficulty Level##
 
@@ -25,7 +25,48 @@ In this tutorial you will learn how to
 
 Beginner
 
-## Creating a New Project ##
+## Introduction ##
+
+If you are not interested in the explanation of data flow and control flow, you may skip the introduction and continue with [Creating a New Project].
+
+VRL provides two types of flow connections: data flow connections (see Figure [Data Flow Connection])
+
+![Data Flow Connection][]
+
+[Data Flow Connection]: resources/img/data-flow-connection-01.png width=450px
+
+and control flow connections (see Figure [Control Flow Connection]).
+
+![Control Flow Connection][]
+
+[Control Flow Connection]: resources/img/control-flow-connection-01.png width=450px
+
+### Data Flow ###
+
+A data flow connection describes the data dependencies between methods. If method `b()` depends on the result of method `a()`. This is shown in Figure [Data Flow Connection].
+
+If you are not familiar with the term *method* think of it as a specific task that takes some *input data* and produces *output data*.
+
+#### Example: ####
+
+	Name:   add
+	Input:  a, b
+	Taks:   c = a + b
+	Output: c
+
+See Figure [Data Dependencies of `add()`] for two `add()` methods that are connected with a data flow connection.
+
+![Data Dependencies of `add()`][]
+
+[Data Dependencies of `add()`]: resources/img/data-flow-connection-02.png width=450px
+
+### Control Flow ###
+
+A control flow connection describes the invocation order of methods, i.e., the execution order of tasks.
+
+>**Note:** Invocation orders of methods can be defined explicitly via control flow connections or implicitly by defining data connections. In many cases however it is necessary to use both, data connections and control flow connections to define a workflow.
+
+## Creating a New Project [Creating a New Project]
 
 1. Start VRL-Studio
 2. If a dialog shows up, that asks whether to create or load project, click `Cancel`.
@@ -55,7 +96,9 @@ Compile the code by pressing on the *Compile* button. Now, open the *Component M
 
 ## Adding Methods ##
 
-If a component class declares more than one method they are usually not shown in the component window. To add a method click on the drop down box, choose a method and click on the *add* button. Add the following methods:
+If a component class declares more than one method they are usually not shown in the component window. To add a method click on the drop down box, choose a method and click on the *add* button.
+
+Add the following methods (the order matters!):
 
 - reset()
 - inc()
@@ -75,11 +118,11 @@ To add the *Counter* object to the control flow drag the end of the yellow conne
 
 [Move control flow Connection]: resources/img/move-control-flow-01.png width=450px
 
-To complete the control flow drag a connection from the control flow output of the *Counter* object to the *Stop* object. To do so, first move the *Stop* object from the top to the bottom (see Figure ). Next, drag a connection from the control flow output of the *Counter* object to the *Stop* object (see Figure [Create Connection]).
+To complete the control flow drag a connection from the control flow output of the *Counter* object to the *Stop* object. To do so, first move the *Stop* object from the top to the bottom (see Figure ). Next, drag a connection from the control flow output of the *Counter* object to the *Stop* object (see Figure [Create Control Flow Connection]).
 
-![Create Connection][]
+![Create Control Flow Connection][]
 
-[Create Connection]: resources/img/create-control-flow-connection-01.png width=450px
+[Create Control Flow Connection]: resources/img/create-control-flow-connection-01.png width=450px
 
 ## Executing the Control Flow ##
 
@@ -88,9 +131,9 @@ The control flow executes the following methods:
 	Counter counter = new Counter()
 	counter.reset()
 	counter.inc()
-	counter.getV()
+	v1 = counter.getV()
 
-Click on the *Start* button to execute the control flow. The method `getV()` will return `1`.
+Click on the *Start* button to execute the control flow. The method `getV()` will return `1` (`v1 = 1`).
 
 ## Changing Method Order ##
 
@@ -106,9 +149,51 @@ If you click the *Start* button again `getV()` returns `0`. The *Counter* compon
 
 [Changed Method Order]: resources/img/change-method-order-02.png width=450px
 
+## Adding Data Dependencies ##
+
+For the next steps you have to revert the method order by dragging the `reset()` method up. See Figure [Counter Methods] for the correct method order.
+
+Now add a second *Counter* object to the canvas and add the following methods (the order matters!):
+
+- setV()
+- inc()
+- getV()
+
+Add the object to the control flow. This is done exactly as before. Figure [Two *Counter* objects] shows the desired result.
+
+![Two *Counter* objects][]
+
+[Two *Counter* objects]: resources/img/second-counter-object-added-to-control-flow-01.png width=450px
+
+Now drag a data connection from the output connector of `getV()` of the first *Counter* object to the input connector of the second *Counter* object (see Figure [Create Data Flow Connection]).
+
+![Create Data Flow Connection][]
+
+[Create Data Flow Connection]: resources/img/create-data-flow-connection-01.png width=450px
+
+## Executing the final Workflow ##
+
+The final workflowflow executes the following methods:
+	
+	Counter counter1 = new Counter()
+	counter1.reset()
+	counter1.inc()
+	v1 = counter1.getV()
+
+	Counter counter2 = new Counter()
+	counter2.setV(1)
+	counter2.inc()
+	v2 = counter2.getV()
+
+After executing the workflow, the `getV()` method of the first *Counter* object returns `1` (`v1 = 1`). The `getV()` method of the second *Counter* object returns `2` (`v2 = 2`, see Figure [Final Workflow]).
+
+![Final Workflow][]
+
+[Final Workflow]: resources/img/final-workflow-01.png width=450px
+
 ## Further Reading ##
 
---
+- [Version Management](version-management.html)
 
 
 
