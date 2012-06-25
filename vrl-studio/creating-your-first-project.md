@@ -30,7 +30,7 @@ Beginner
 
 1. Start VRL-Studio
 2. If a dialog shows up, that asks whether to create or load project, click `Cancel`.
-3. Click on `File->New-Project from Template->VRL-Tutorial-1`
+3. Click on `File->New-Project from Template->VRL-Tutorial 1`
 4. A file dialog will appear. Choose the destination of your project.
 
 The displayed content should look like this:
@@ -113,6 +113,12 @@ Click on the *invoke* button to invoke the method `add(Integer a, Integer b)` (s
 ![Method Invocation][]
 
 [Method Invocation]: resources/img/method-invocation-01.png width=450px
+
+The inputs will blink green to indicate that the parameter validation was successful. The output will be shown after the method has been invoked.
+
+## Things To Try ##
+
+VRL-Studio contains some small code templates. To compile them, right-click on the canvas to open the canvas menu (popup menu) and choose one of the code code template under `Code Templates->`. Compile the code as shown before.
 
 ## Further Reading ##
 
