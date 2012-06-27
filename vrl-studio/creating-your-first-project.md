@@ -118,7 +118,7 @@ The inputs will blink green to indicate that the parameter validation was succes
 
 ## Things To Try ##
 
-VRL-Studio contains some small code templates. To compile them, right-click on the canvas to open the canvas menu (popup menu) and choose one of the code code template under `Code Templates->`. Compile the code as shown before.
+VRL-Studio contains some small code templates. To compile them, right-click on the canvas to open the canvas menu (popup menu) and choose one of the code templates under `Code Templates->`. Compile the code as shown before.
 
 ## Further Reading ##
 

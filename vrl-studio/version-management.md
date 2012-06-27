@@ -70,6 +70,13 @@ As you have just saved the project, press *Discard* in the *Checkout Version* di
 
 Now open the *Version Management* window and switch back to version 3 by double clicking on it. In the *Checkout Version* dialog press *Discard*. After that, the *Add Integers*  component is visible again. 
 
+## Custom Messages ##
+
+As you have seen in the previous sections, VRL creates version messages automatically. They indicate what has been changed since the last version. This is great as you don't have to care about versioning most of the time. You can search messages by date or by the name of the component that has been added or deleted, etc.
+
+But sometimes it is necessary to define custom messages, e.g., for detailed explanations and short tags, such as `feature xy implemented`. This allows you to search for `feature xy` and switch to the corresponding version.
+
+To define custom messages, save the project by clicking on `File->Save Project (with message)`. After the project has been saved, VRL-Studio will show a message dialog that allows to define a custom message.
 ## Further Reading ##
 
 --

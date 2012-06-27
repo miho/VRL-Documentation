@@ -42,7 +42,7 @@ The following code defines a simple Java/Groovy class that provides a method tha
 		}
 	}
 
-To create a VRL interface for this class no additional code is required. 
+To create a VRL interface for this class no additional code is required. To categorize classes recent VRL versions may require one additional annotation, e.g., `@ComponentInfo(name=AddIntegers, category="Custom")` that contains the category information.
 
 ![Add Integers][]
 
@@ -74,7 +74,7 @@ Manually creating the user interface with Java is much more complicated. Equival
 			});
 			frame.add( btn ) ;
 			frame.pack( ) ;
-			frame.setVisible (true );
+			frame.setVisible ( true );
 	 	}
 	}
 

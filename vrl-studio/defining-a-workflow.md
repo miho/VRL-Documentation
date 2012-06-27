@@ -2,12 +2,12 @@ CSS:	resources/css/vrl-documentation.css
 
 # Defining a Workflow #
 
-### Requirements ###
+## Requirements ##
 
 - VRL-Studio >= 4.0.x
 - VRL >= 0.4.1
 
-### Depends on ###
+## Depends on ##
 
 [Creating Your First Project](creating-your-first-project.html)
 
@@ -43,7 +43,7 @@ and control flow connections (see Figure [Control Flow Connection]).
 
 ### Data Flow ###
 
-A data flow connection describes the data dependencies between methods. If method `b()` depends on the result of method `a()`. This is shown in Figure [Data Flow Connection].
+A data flow connection describes the data dependencies between methods. Figure [Data Flow Connection] shows two components. Each of them has one method. A control flow connection indicates a data dependency between the two methods. Method `b()` of component 2 depends on the result of method `a()` of component 1.
 
 If you are not familiar with the term *method* think of it as a specific task that takes some *input data* and produces *output data*.
 
@@ -54,7 +54,7 @@ If you are not familiar with the term *method* think of it as a specific task th
 	Taks:   c = a + b
 	Output: c
 
-See Figure [Data Dependencies of `add()`] for two `add()` methods that are connected with a data flow connection.
+See Figure [Data Dependencies of `add()`] for two `add()` methods that are connected with a data flow connection. The result of the first `add()` method is necessary to invoke the second `add()` method. 
 
 ![Data Dependencies of `add()`][]
 
@@ -173,7 +173,7 @@ Now drag a data connection from the output connector of `getV()` of the first *C
 
 ## Executing the final Workflow ##
 
-The final workflowflow executes the following methods:
+The final workflow executes the following methods:
 	
 	Counter counter1 = new Counter()
 	counter1.reset()

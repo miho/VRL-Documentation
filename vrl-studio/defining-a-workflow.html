@@ -7,14 +7,14 @@
 <body>
 <h1 id="definingaworkflow">Defining a Workflow</h1>
 
-<h3 id="requirements">Requirements</h3>
+<h2 id="requirements">Requirements</h2>
 
 <ul>
 <li>VRL-Studio &gt;= 4.0.x</li>
 <li>VRL &gt;= 0.4.1</li>
 </ul>
 
-<h3 id="dependson">Depends on</h3>
+<h2 id="dependson">Depends on</h2>
 
 <p><a href="creating-your-first-project.html">Creating Your First Project</a></p>
 
@@ -56,7 +56,7 @@
 
 <h3 id="dataflow">Data Flow</h3>
 
-<p>A data flow connection describes the data dependencies between methods. If method <code>b()</code> depends on the result of method <code>a()</code>. This is shown in Figure <a href="resources/img/data-flow-connection-01.png">Data Flow Connection</a>.</p>
+<p>A data flow connection describes the data dependencies between methods. Figure <a href="resources/img/data-flow-connection-01.png">Data Flow Connection</a> shows two components. Each of them has one method. A control flow connection indicates a data dependency between the two methods. Method <code>b()</code> of component 2 depends on the result of method <code>a()</code> of component 1.</p>
 
 <p>If you are not familiar with the term <em>method</em> think of it as a specific task that takes some <em>input data</em> and produces <em>output data</em>.</p>
 
@@ -68,7 +68,7 @@ Taks:   c = a + b
 Output: c
 </code></pre>
 
-<p>See Figure <a href="resources/img/data-flow-connection-02.png">Data Dependencies of <code>add()</code></a> for two <code>add()</code> methods that are connected with a data flow connection.</p>
+<p>See Figure <a href="resources/img/data-flow-connection-02.png">Data Dependencies of <code>add()</code></a> for two <code>add()</code> methods that are connected with a data flow connection. The result of the first <code>add()</code> method is necessary to invoke the second <code>add()</code> method. </p>
 
 <figure>
 <img src="resources/img/data-flow-connection-02.png" alt="Data Dependencies of add()" id="datadependenciesofadd" style="width:450px;" />
@@ -217,7 +217,7 @@ v1 = counter.getV()
 
 <h2 id="executingthefinalworkflow">Executing the final Workflow</h2>
 
-<p>The final workflowflow executes the following methods:</p>
+<p>The final workflow executes the following methods:</p>
 
 <pre><code>Counter counter1 = new Counter()
 counter1.reset()
