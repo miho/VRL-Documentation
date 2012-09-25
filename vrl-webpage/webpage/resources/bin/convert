@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# ------------------------------------
+CWD="$(pwd)"
+APPDIR="$(dirname "$0")"
+cd "$APPDIR"
+APPDIR="$(pwd)"
+cd "$CWD"
+
+MD_EXE="$APPDIR/multimarkdown"
+# ------------------------------------
+
+if [ "$1" == "-h" ]
+then
+	echo "Usage: convert input-file"
+	exit 0
+fi	
+
+OUT_FILE="${1/.md/.html}"
+
+echo ">> creating $OUT_FILE"
+
+"$MD_EXE" -t html -o "$OUT_FILE" "$1"  
+
+if [ $? == 1 ]
+then
+	echo ">> ERROR: cannot create html file!"
+	exit 1
+fi
+
+HTML_DOC="$(cat $OUT_FILE)"
+HTML_DOC=${HTML_DOC/<!--content-begin-->/<div class="main">}
+HTML_DOC=${HTML_DOC/<!--content-end-->/</div>}
+
+echo "$HTML_DOC" > "$OUT_FILE"
