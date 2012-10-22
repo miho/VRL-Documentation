@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/vrl-documentation.css"/>
+</head>
+<body>
+<h1 id="definingaworkflow">Defining a Workflow</h1>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+<li>VRL-Studio &gt;= 4.0.x</li>
+<li>VRL &gt;= 0.4.1</li>
+</ul>
+
+<h2 id="dependson">Depends on</h2>
+
+<p><a href="creating-your-first-project.html">Creating Your First Project</a></p>
+
+<h2 id="contents">Contents</h2>
+
+<p>In this tutorial you will learn how to</p>
+
+<ul>
+<li>add methods to a component instance</li>
+<li>define control flows</li>
+<li>define data flows</li>
+</ul>
+
+<h2 id="difficultylevel">Difficulty Level</h2>
+
+<h3 id="difficultylevel">Difficulty Level</h3>
+
+<p>Beginner</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>If you are not interested in the explanation of data flow and control flow, you may skip the introduction and continue with <a href="#creatinganewproject">Creating a New Project</a>.</p>
+
+<p>VRL provides two types of flow connections: data flow connections (see Figure <a href="resources/img/data-flow-connection-01.png">Data Flow Connection</a>)</p>
+
+<figure>
+<img src="resources/img/data-flow-connection-01.png" alt="Data Flow Connection" id="dataflowconnection" style="width:450px;" />
+<figcaption>Data Flow Connection</figcaption></figure>
+
+
+
+<p>and control flow connections (see Figure <a href="resources/img/control-flow-connection-01.png">Control Flow Connection</a>).</p>
+
+<figure>
+<img src="resources/img/control-flow-connection-01.png" alt="Control Flow Connection" id="controlflowconnection" style="width:450px;" />
+<figcaption>Control Flow Connection</figcaption></figure>
+
+
+
+<h3 id="dataflow">Data Flow</h3>
+
+<p>A data flow connection describes the data dependencies between methods. Figure <a href="resources/img/data-flow-connection-01.png">Data Flow Connection</a> shows two components. Each of them has one method. A control flow connection indicates a data dependency between the two methods. Method <code>b()</code> of component 2 depends on the result of method <code>a()</code> of component 1.</p>
+
+<p>If you are not familiar with the term <em>method</em> think of it as a specific task that takes some <em>input data</em> and produces <em>output data</em>.</p>
+
+<h4 id="example:">Example:</h4>
+
+<pre><code>Name:   add
+Input:  a, b
+Taks:   c = a + b
+Output: c
+</code></pre>
+
+<p>See Figure <a href="resources/img/data-flow-connection-02.png">Data Dependencies of <code>add()</code></a> for two <code>add()</code> methods that are connected with a data flow connection. The result of the first <code>add()</code> method is necessary to invoke the second <code>add()</code> method. </p>
+
+<figure>
+<img src="resources/img/data-flow-connection-02.png" alt="Data Dependencies of add()" id="datadependenciesofadd" style="width:450px;" />
+<figcaption>Data Dependencies of <code>add()</code></figcaption></figure>
+
+
+
+<h3 id="controlflow">Control Flow</h3>
+
+<p>A control flow connection describes the invocation order of methods, i.e., the execution order of tasks.</p>
+
+<blockquote>
+<p><strong>Note:</strong> Invocation orders of methods can be defined explicitly via control flow connections or implicitly by defining data connections. In many cases however it is necessary to use both, data connections and control flow connections to define a workflow.</p>
+</blockquote>
+
+<h2 id="creatinganewproject">Creating a New Project</h2>
+
+<ol>
+<li>Start VRL-Studio</li>
+<li>If a dialog shows up, that asks whether to create or load project, click <code>Cancel</code>.</li>
+<li>Click on <code>File-&gt;New-Project</code></li>
+<li>A file dialog will appear. Choose the destination of your project.</li>
+</ol>
+
+<p>The displayed content should look like this:</p>
+
+<figure>
+<img src="resources/img/empty-project-01.png" alt="Empty Project" id="emptyproject" style="width:450px;" />
+<figcaption>Empty Project</figcaption></figure>
+
+
+
+<h2 id="addingacomponent">Adding a component</h2>
+
+<p>First, right click on the canvas and click on <code>Code Templates-&gt;Counter</code> (see Figure <a href="resources/img/code-templates-01.png">Code Templates</a>)</p>
+
+<figure>
+<img src="resources/img/code-templates-01.png" alt="Code Templates" id="codetemplates" style="width:450px;" />
+<figcaption>Code Templates</figcaption></figure>
+
+
+
+<p>Compile the code by pressing on the <em>Compile</em> button. Now, open the <em>Component Management</em> window, add the <em>Counter</em> component to the canvas and close the code window. The desired result is shown in Figure <a href="resources/img/counter-component-01.png">Counter Component</a>.</p>
+
+<figure>
+<img src="resources/img/counter-component-01.png" alt="Counter Component" id="countercomponent" style="width:450px;" />
+<figcaption>Counter Component</figcaption></figure>
+
+
+
+<h2 id="addingmethods">Adding Methods</h2>
+
+<p>If a component class declares more than one method they are usually not shown in the component window. To add a method click on the drop down box, choose a method and click on the <em>add</em> button.</p>
+
+<p>Add the following methods (the order matters!):</p>
+
+<ul>
+<li>reset()</li>
+<li>inc()</li>
+<li>getV()</li>
+</ul>
+
+<p>The desired result is shown in Figure <a href="resources/img/counter-component-02.png">Counter Methods</a>.</p>
+
+<figure>
+<img src="resources/img/counter-component-02.png" alt="Counter Methods" id="countermethods" style="width:450px;" />
+<figcaption>Counter Methods</figcaption></figure>
+
+
+
+<h2 id="addingcomponentstothecontrolflow">Adding Components to the Control Flow</h2>
+
+<p>To add the <em>Counter</em> object to the control flow drag the end of the yellow connection from the <em>Stop</em> object to the control flow input of the the <em>Counter</em> object (see Figure <a href="resources/img/move-control-flow-01.png">Move Control Flow Connection</a>).</p>
+
+<figure>
+<img src="resources/img/move-control-flow-01.png" alt="Move Control Flow Connection" id="movecontrolflowconnection" style="width:450px;" />
+<figcaption>Move Control Flow Connection</figcaption></figure>
+
+
+
+<p>To complete the control flow drag a connection from the control flow output of the <em>Counter</em> object to the <em>Stop</em> object. To do so, first move the <em>Stop</em> object from the top to the bottom (see Figure ). Next, drag a connection from the control flow output of the <em>Counter</em> object to the <em>Stop</em> object (see Figure <a href="resources/img/create-control-flow-connection-01.png">Create Control Flow Connection</a>).</p>
+
+<figure>
+<img src="resources/img/create-control-flow-connection-01.png" alt="Create Control Flow Connection" id="createcontrolflowconnection" style="width:450px;" />
+<figcaption>Create Control Flow Connection</figcaption></figure>
+
+
+
+<h2 id="executingthecontrolflow">Executing the Control Flow</h2>
+
+<p>The control flow executes the following methods:</p>
+
+<pre><code>Counter counter = new Counter()
+counter.reset()
+counter.inc()
+v1 = counter.getV()
+</code></pre>
+
+<p>Click on the <em>Start</em> button to execute the control flow. The method <code>getV()</code> will return <code>1</code> (<code>v1 = 1</code>).</p>
+
+<h2 id="changingmethodorder">Changing Method Order</h2>
+
+<p>To change the order of the methods of the <em>Counter</em> object you can drag them up and down. Drag the <code>reset()</code> method down below the <code>inc()</code> method (see Figure <a href="resources/img/change-method-order-01.png">Change Method Order</a>).</p>
+
+<figure>
+<img src="resources/img/change-method-order-01.png" alt="Change Method Order" id="changemethodorder" style="width:450px;" />
+<figcaption>Change Method Order</figcaption></figure>
+
+
+
+<p>If you click the <em>Start</em> button again <code>getV()</code> returns <code>0</code>. The <em>Counter</em> component should look as shown in Figure <a href="resources/img/change-method-order-02.png">Changed Method Order</a>.</p>
+
+<figure>
+<img src="resources/img/change-method-order-02.png" alt="Changed Method Order" id="changedmethodorder" style="width:450px;" />
+<figcaption>Changed Method Order</figcaption></figure>
+
+
+
+<h2 id="addingdatadependencies">Adding Data Dependencies</h2>
+
+<p>For the next steps you have to revert the method order by dragging the <code>reset()</code> method up. See Figure <a href="resources/img/counter-component-02.png">Counter Methods</a> for the correct method order.</p>
+
+<p>Now add a second <em>Counter</em> object to the canvas and add the following methods (the order matters!):</p>
+
+<ul>
+<li>setV()</li>
+<li>inc()</li>
+<li>getV()</li>
+</ul>
+
+<p>Add the object to the control flow. This is done exactly as before. Figure <a href="resources/img/second-counter-object-added-to-control-flow-01.png">Two <em>Counter</em> objects</a> shows the desired result.</p>
+
+<figure>
+<img src="resources/img/second-counter-object-added-to-control-flow-01.png" alt="Two Counter objects" id="twocounterobjects" style="width:450px;" />
+<figcaption>Two <em>Counter</em> objects</figcaption></figure>
+
+
+
+<p>Now drag a data connection from the output connector of <code>getV()</code> of the first <em>Counter</em> object to the input connector of the second <em>Counter</em> object (see Figure <a href="resources/img/create-data-flow-connection-01.png">Create Data Flow Connection</a>).</p>
+
+<figure>
+<img src="resources/img/create-data-flow-connection-01.png" alt="Create Data Flow Connection" id="createdataflowconnection" style="width:450px;" />
+<figcaption>Create Data Flow Connection</figcaption></figure>
+
+
+
+<h2 id="executingthefinalworkflow">Executing the final Workflow</h2>
+
+<p>The final workflow executes the following methods:</p>
+
+<pre><code>Counter counter1 = new Counter()
+counter1.reset()
+counter1.inc()
+v1 = counter1.getV()
+
+Counter counter2 = new Counter()
+counter2.setV(1)
+counter2.inc()
+v2 = counter2.getV()
+</code></pre>
+
+<p>After executing the workflow, the <code>getV()</code> method of the first <em>Counter</em> object returns <code>1</code> (<code>v1 = 1</code>). The <code>getV()</code> method of the second <em>Counter</em> object returns <code>2</code> (<code>v2 = 2</code>, see Figure <a href="resources/img/final-workflow-01.png">Final Workflow</a>).</p>
+
+<figure>
+<img src="resources/img/final-workflow-01.png" alt="Final Workflow" id="finalworkflow" style="width:450px;" />
+<figcaption>Final Workflow</figcaption></figure>
+
+
+
+<h2 id="furtherreading">Further Reading</h2>
+
+<ul>
+<li><a href="version-management.html">Version Management</a></li>
+</ul>
+</body>
+</html>
