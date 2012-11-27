@@ -25,7 +25,7 @@ Intermediate
 
 ## Introduction ##
 
-Groovy is a dynamic language. Current versions of Groovy (< 2.0) do not support static compilation. Thus, many errors occur at runtime. Even though dynamic languages tend to have a flat learning curve they often make it difficult to find bugs in the code. Many errors can only be detected if the code is executed. For code that contains many conditional statements this can be problematic.
+Groovy is a dynamic language. Current versions of Groovy (< 2.0) do not support static compilation. Thus, many errors occur at runtime. Even though dynamic languages tend to have a flat learning curve they often make it difficult to find bugs in the code. Many errors can only be detected if the code is executed. For code that contains several conditional statements this can be problematic.
 
 VRL provides some basic debugging features that may help finding bugs in your code.
 
@@ -146,9 +146,9 @@ Now type `VDebug.step()` to continue the execution. This will cause the exceptio
 
 ### What is Visual Debugging? ###
 
-Sometimes you might be interested in the state of private member variables of a visualized object. In a classical IDE one would observe the variable by compiling/running the program in debug mode. This would allow for detailed analysis of all members etc.
+Sometimes you might be interested in the state of member variables of a visualized object. In a classical IDE one would observe the variable by compiling/running the program in debug mode. This would allow for detailed analysis of all members etc.
 
-VRL-Studio has a feature called *Visual Debugging*.  even though it cannot fully replace a classical debugger it highly simplifies the analysis of visualized objects. This allows you to access objects that are visualized on the canvas from the shell environment.
+VRL-Studio has a feature called *Visual Debugging*.  Even though it cannot fully replace a classical debugger it highly simplifies the analysis of visualized objects. It allows you to access objects that are visualized on the canvas from the shell environment.
 
 ### Accessing Objects From The Shell ###
 
@@ -206,15 +206,21 @@ As you have executed the method with a value `!=0` before you probably expected 
       value = value;
     }
 
-To fix this issue, change it to:
+Now fix this issue bychanging it to:
 
     public void aMethod(int value) {
       this.value = value;
     }
 
-This is necessary as the parameter of the method has the same name as the ember variable. To distinguish them, it it necessary to use `this.value`.
+This is necessary as the parameter of the method has the same name as the member variable. To distinguish them, it it necessary to use `this.value`.
 
-You may now repeat the assignment of the `obj` variable and check that it correctly sets the member variable.
+You may now repeat the assignment of the `obj` variable and check that it correctly sets the member variable. Assuming that you called the `aMethod()` with input value `2` this is the shell output:
+
+    VRL:> obj = sh.getObject(clipboard[0])
+    out:> eu.mihosoft.vrl.user.MemberObject@398a9f36
+    VRL:> obj.value
+    out:> 2
+    VRL:> 
 
 ## Further Reading ##
 
