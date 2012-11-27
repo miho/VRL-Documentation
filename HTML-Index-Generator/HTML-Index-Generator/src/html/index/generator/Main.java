@@ -53,7 +53,7 @@ public class Main {
         HTMLMenuGenerator menuGenerator = new HTMLMenuGenerator(options.getTitle(),
                 options.getIntro());
         
-        menuGenerator.setTitle(options.getCssFile());
+        menuGenerator.setCssFile(options.getCssFile());
         
         System.out.println(">> creating " + indexFileName);
 
