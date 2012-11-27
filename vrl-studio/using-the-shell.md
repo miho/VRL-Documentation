@@ -78,7 +78,7 @@ This gives you an overview over the possibilities of the shell that are extensio
 
 ## Executing Commands ##
 
-As a first example, type `println "Hello, Shell"`. And press `Enter`. It will show the following output:
+As a first example, type `println "Hello, Shell"` and press `Enter`. It will show the following output:
 
     VRL:> println "Hello, Shell"
     Hello, Shell
