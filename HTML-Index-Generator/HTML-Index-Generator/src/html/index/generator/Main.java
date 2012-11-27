@@ -58,6 +58,10 @@ public class Main {
         System.out.println(">> creating " + indexFileName);
 
         for (File f : options.getIn().listFiles(filter)) {
+            
+            if (f.getName().equals("index.html")) {
+                continue;
+            }
 
             String name = f.getName();
 
