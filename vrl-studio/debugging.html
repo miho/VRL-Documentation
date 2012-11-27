@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/vrl-documentation.css"/>
+</head>
+<body>
+<h1 id="debugging">Debugging</h1>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+<li>VRL-Studio &gt;= 4.4.3</li>
+<li>VRL &gt;= 0.4.2.7</li>
+</ul>
+
+<h2 id="dependson">Depends On</h2>
+
+<p><a href="using-the-shell.html">Using The Shell</a></p>
+
+<h2 id="contents">Contents</h2>
+
+<p>In this tutorial you will learn how to</p>
+
+<ul>
+<li>enable debug output</li>
+<li>find bugs in your code</li>
+<li>perform visual debugging</li>
+</ul>
+
+<h2 id="difficultylevel">Difficulty Level</h2>
+
+<p>Intermediate</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Groovy is a dynamic language. Current versions of Groovy (&lt; 2.0) do not support static compilation. Thus, many errors occur at runtime. Even though dynamic languages tend to have a flat learning curve they often make it difficult to find bugs in the code. Many errors can only be detected if the code is executed. For code that contains many conditional statements this can be problematic.</p>
+
+<p>VRL provides some basic debugging features that may help finding bugs in your code.</p>
+
+<h3 id="enablingdebugoutput">Enabling Debug Output</h3>
+
+<p>Click on <code>Edit-&gt;Preferences</code> and then on the <code>Development</code> tab (see <a href="resources/img/enable-logging-01.png">Enable Logging</a>). Here you can enable </p>
+
+<ul>
+<li><code>System.out</code> : shows usual text output, e.g., <code>println(&quot;msg&quot;)</code></li>
+<li><code>System.err</code> : shows error output, e.g., stack traces etc.</li>
+</ul>
+
+<figure>
+<img src="resources/img/enable-logging-01.png" alt="Enable Logging" id="enablelogging" style="width:450px;" />
+<figcaption>Enable Logging</figcaption></figure>
+
+
+
+<p>Drag the ruler up to show the log (see <a href="resources/img/show-log-01.png">Show Log</a>). Now you can see VRL debug output in the log.</p>
+
+<figure>
+<img src="resources/img/show-log-01.png" alt="Show Log" id="showlog" style="width:450px;" />
+<figcaption>Show Log</figcaption></figure>
+
+
+
+<h2 id="debuggingcode">Debugging Code</h2>
+
+<h3 id="basicexample">Basic Example</h3>
+
+<p>Consider the following code:</p>
+
+<pre><code>package eu.mihosoft.vrl.user;
+@ComponentInfo(name=&quot;BuggyClass&quot;, category=&quot;Custom&quot;)
+class BuggyClass implements Serializable {
+  private static final long serialVersionUID=1;
+
+  public String letItCrash(){
+    String s = &quot;a string&quot;;
+    s.thisMethodDoesNotExist();
+    return &quot;Nice! It doesn't crash anymore!&quot;;
+  }
+}
+</code></pre>
+
+<p>It compiles without problems. But when you run it you will get an error message:</p>
+
+<figure>
+<img src="resources/img/debugging-error-msg-01.png" alt="Error Message" id="errormessage" style="width:650px;" />
+<figcaption>Error Message</figcaption></figure>
+
+
+
+<p>Obviously, we try to call a method that doesn&#8217;t exist. The compiler does not complain because method calls are checked at runtime.</p>
+
+<h3 id="readingthelog">Reading The Log</h3>
+
+<p>If the code you are trying to debug is very long and complicated it might be difficult to figure out where the exception was thrown. Therefore it might be useful to look at the stack trace. We do this by opening the log (see <a href="resources/img/show-log-01.png">Show Log</a>).</p>
+
+<p>The log gives us the following output:</p>
+
+<pre><code>Method &quot;eu.mihosoft.vrl.user.BuggyClass.letItCrash()&quot; can't be invoked:groovy.lang.MissingMethodException: No signature of method: java.lang.String.thisMethodDoesNotExist() is applicable for argument types: () values: []
+No signature of method: java.lang.String.thisMethodDoesNotExist() is applicable for argument types: () values: []
+ --&gt; at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.unwrap(ScriptBytecodeAdapter.java:52)
+ --&gt; at org.codehaus.groovy.runtime.callsite.PojoMetaClassSite.call(PojoMetaClassSite.java:43)
+ --&gt; at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:39)
+ --&gt; at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:105)
+ --&gt; at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:109)
+
+--------------------------
+ --&gt; at eu.mihosoft.vrl.user.BuggyClass.letItCrash(BuggyClass.groovy:11) &lt;-- PROJECT CLASS!
+--------------------------
+
+ --&gt; at sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-5)
+ --&gt; at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:36)
+ --&gt; at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:22)
+ --&gt; at java.lang.reflect.Method.invoke(Method.java:594)
+ --&gt; at eu.mihosoft.vrl.reflection.ObjectInspector.invoke(ObjectInspector.java:185)
+ --&gt; at eu.mihosoft.vrl.reflection.VisualObjectInspector.invoke(VisualObjectInspector.java:625)
+ --&gt; at eu.mihosoft.vrl.reflection.VisualObjectInspector.invoke(VisualObjectInspector.java:592)
+ --&gt; at eu.mihosoft.vrl.reflection.DefaultMethodRepresentation.invoke(DefaultMethodRepresentation.java:1051)
+ --&gt; at eu.mihosoft.vrl.reflection.DefaultMethodRepresentation.invoke(DefaultMethodRepresentation.java:1236)
+ --&gt; at eu.mihosoft.vrl.reflection.DefaultMethodRepresentation.invoke(DefaultMethodRepresentation.java:1248)
+ --&gt; at eu.mihosoft.vrl.reflection.DefaultMethodRepresentation$6.run(DefaultMethodRepresentation.java:730)
+ --&gt; at java.lang.Thread.run(Thread.java:677)
+Can't invoke Method: see stack trace for details!
+</code></pre>
+
+<p>At first sight this output might look scary and complicated. However, it is actually very simple. The stack trace shows all method calls that are involved in the execution that led to the runtime error. In addition, method calls from classes that are defined in the VRL project, i.e., the classes that we defined via Groovy code, can be easily distinguished from other method calls. In our example it is the invocation of our <code>letItCrash()</code> method:</p>
+
+<pre><code>--------------------------
+ --&gt; at eu.mihosoft.vrl.user.BuggyClass.letItCrash(BuggyClass.groovy:11) &lt;-- PROJECT CLASS!
+--------------------------
+</code></pre>
+
+<p>The <a href="resources/img/debugging-error-msg-01.png">Error Message</a> already shows what&#8217;s wrong. But still we don&#8217;t exactly know where the error occurred. Therefore, it is very useful to check the stack trace which exactly shows where an error occurred. In our case the error occurred in the class <code>BuggyClass</code>, line 11.</p>
+
+<h2 id="breakpoints">Breakpoints</h2>
+
+<p>VRL comes with a utility class that allows to stop a visually invoked method at certain points. Therefore, the <code>VDebug</code> class can be used. To add a breakpoint to the code shown above we change it a bit:</p>
+
+<pre><code>package eu.mihosoft.vrl.user;
+@ComponentInfo(name=&quot;BuggyClass&quot;, category=&quot;Custom&quot;)
+class BuggyClass implements Serializable {
+  private static final long serialVersionUID=1;
+
+  public String letItCrash(){
+    String s = &quot;a string&quot;;
+    VDebug.setBreak(&quot;01&quot;) // --&gt; BREAKPOINT 01
+    s.thisMethodDoesNotExist();
+    return &quot;Nice! It doesn't crash anymore!&quot;;
+  }
+}
+</code></pre>
+
+<p>Now click on <code>invoke</code>. Nothing happens. That is exactly what we intended. In the log VRL indicates that the method waits at breakpoint <code>&quot;01&quot;</code>:</p>
+
+<pre><code>&gt;&gt; VDebug: waiting at breakpoint [01]
+</code></pre>
+
+<p>To continue the execution, we have to open the shell. First, type <code>VDebug.at()</code> to check the current position:</p>
+
+<pre><code>VRL:&gt; VDebug.at()
+out:&gt; VDebug: currently at: [01]
+VRL:&gt; 
+</code></pre>
+
+<p>Now type <code>VDebug.step()</code> to continue the execution. This will cause the exception discussed above (see <a href="#readingthelog">Reading The Log</a>).</p>
+
+<h2 id="visualdebugging">Visual Debugging</h2>
+
+<h3 id="whatisvisualdebugging">What is Visual Debugging?</h3>
+
+<p>Sometimes you might be interested in the state of private member variables of a visualized object. In a classical IDE one would observe the variable by compiling/running the program in debug mode. This would allow for detailed analysis of all members etc.</p>
+
+<p>VRL-Studio has a feature called <em>Visual Debugging</em>. even though it cannot fully replace a classical debugger it highly simplifies the analysis of visualized objects. This allows you to access objects that are visualized on the canvas from the shell environment.</p>
+
+<h3 id="accessingobjectsfromtheshell">Accessing Objects From The Shell</h3>
+
+<p>Consider the following code:</p>
+
+<pre><code>@ComponentInfo(name=&quot;PrivateMemberObject&quot;, category=&quot;Custom&quot;)
+public class PrivateMemberObject implements java.io.Serializable {
+  private static final long serialVersionUID=1L;
+
+  public int value;
+
+  public void aMethod(int value) {
+    value = value;
+  }
+}
+</code></pre>
+
+<p>We define a class that has one member and a method that shall set this member. Unfortunately, there is no way to visually access the member as there is no getter-method.</p>
+
+<p>First, create an instance of the <code>MemberObject</code> class. This is how it should look like:</p>
+
+<figure>
+<img src="resources/img/visual-debugging-member-object-01.png" alt="Member Object 1" id="memberobject1" style="width:650px;" />
+<figcaption>Member Object 1</figcaption></figure>
+
+
+
+<p>Before we start analyzing the object from the shell you should invoke the <code>aMethod()</code> method with an input value <code>!=0</code>.</p>
+
+<p>To access the <code>MemberObject</code> instance from the shell select the window by performing <code>CTRL -&gt; Left Click</code> on the titlebar. The window will turn blue to indicate that it has been selected:</p>
+
+<figure>
+<img src="resources/img/visual-debugging-member-object-02.png" alt="Member Object 2" id="memberobject2" style="width:650px;" />
+<figcaption>Member Object 2</figcaption></figure>
+
+
+
+<p>Now go to the shell and type <code>obj = sh.getObject(clipboard[0])</code>:</p>
+
+<pre><code>VRL:&gt; obj = sh.getObject(clipboard[0])
+out:&gt; eu.mihosoft.vrl.user.MemberObject@398a9f36
+VRL:&gt; 
+</code></pre>
+
+<p>This defines the variable <code>obj</code> in the shell environment. You can check that via <code>sh:variables</code>:</p>
+
+<pre><code>VRL:&gt; sh:variables
+------------------------ variables ------------------------
+-&gt; obj type = eu.mihosoft.vrl.user.MemberObject
+VRL:&gt; 
+</code></pre>
+
+<p>Analyzing the object is now very easy. Just type <code>obj.value</code> to show the variable in the shell:</p>
+
+<pre><code>VRL:&gt; obj.value
+out:&gt; 0
+VRL:&gt; 
+</code></pre>
+
+<p>As you have executed the method with a value <code>!=0</code> before you probably expected a different output from the shell. To fix this bug, recall the implementation of <code>aMethod</code>:</p>
+
+<pre><code>public void aMethod(int value) {
+  value = value;
+}
+</code></pre>
+
+<p>To fix this issue, change it to:</p>
+
+<pre><code>public void aMethod(int value) {
+  this.value = value;
+}
+</code></pre>
+
+<p>This is necessary as the parameter of the method has the same name as the ember variable. To distinguish them, it it necessary to use <code>this.value</code>.</p>
+
+<p>You may now repeat the assignment of the <code>obj</code> variable and check that it correctly sets the member variable.</p>
+
+<h2 id="furtherreading">Further Reading</h2>
+
+<p>-</p>
+</body>
+</html>
