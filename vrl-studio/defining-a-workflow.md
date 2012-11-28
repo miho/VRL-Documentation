@@ -19,9 +19,7 @@ In this tutorial you will learn how to
 - define control flows
 - define data flows
 
-## Difficulty Level##
-
-### Difficulty Level ###
+## Difficulty Level ##
 
 Beginner
 

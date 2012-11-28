@@ -20,9 +20,7 @@ In this tutorial you will learn how to
 - add components to the canvas
 - invoking methods
 
-## Difficulty Level##
-
-### Difficulty Level ###
+## Difficulty Level ##
 
 Beginner
 

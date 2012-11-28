@@ -21,8 +21,6 @@ In this tutorial you will learn how to
 
 ## Difficulty Level##
 
-### Difficulty Level ###
-
 Beginner
 
 ## Creating a New Project ##

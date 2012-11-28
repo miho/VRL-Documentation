@@ -20,8 +20,6 @@ In this tutorial you will learn how to
 
 ## Difficulty Level ##
 
-### Difficulty Level ###
-
 Intermediate
 
 ## Introduction ##
