@@ -20,7 +20,7 @@ In this tutorial you will learn how to
 
 ## Difficulty Level ##
 
-Intermediate
+Beginner
 
 ## Introduction ##
 
