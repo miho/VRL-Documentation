@@ -226,5 +226,5 @@ You may now repeat the assignment of the `obj` variable and check that it correc
 
 -
 
-
+[<- Back To Help Index](index.html)
 
