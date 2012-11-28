@@ -25,7 +25,7 @@ Intermediate
 
 The shell is an interactive command line interface that allows to control VRL-Studio.
 
-> **WARNING** The shell is great for experiments. It is a perfect calculator, can be used for debugging and exploration of the VRL API. But, **it can also damage your project**. Freedom is responsibility! 
+> **WARNING** The shell is great for experiments. It is a perfect calculator, can be used for debugging and exploration of the VRL API. But, **it can also damage your project and/or your computer**. Freedom is responsibility! 
 
 >That said, have fun with the shell!
 
