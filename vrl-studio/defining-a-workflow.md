@@ -192,7 +192,6 @@ After executing the workflow, the `getV()` method of the first *Counter* object 
 ## Further Reading ##
 
 
-- [Creating Components](creating-components.html)
 - [Version Management](version-management.html)
 
 
