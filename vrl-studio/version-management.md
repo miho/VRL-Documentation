@@ -21,8 +21,6 @@ In this tutorial you will learn how to
 
 ## Difficulty Level##
 
-### Difficulty Level ###
-
 Beginner
 
 ## Creating a New Project ##
@@ -82,4 +80,4 @@ To define custom messages, save the project by clicking on `File->Save Project (
 --
 
 
-
+[<- Back To Help Index](index.html)

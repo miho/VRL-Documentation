@@ -25,6 +25,10 @@ Intermediate
 
 The shell is an interactive command line interface that allows to control VRL-Studio.
 
+> **WARNING** The shell is great for experiments. It is a perfect calculator, can be used for debugging and exploration of the VRL API. But, **it can also damage your project and other files on your computer**. Freedom is responsibility! 
+
+>That said, have fun with the shell!
+
 
 ### Opening The Shell ###
 
@@ -78,7 +82,7 @@ This gives you an overview over the possibilities of the shell that are extensio
 
 ## Executing Commands ##
 
-As a first example, type `println "Hello, Shell"`. And press `Enter`. It will show the following output:
+As a first example, type `println "Hello, Shell"` and press `Enter`. It will show the following output:
 
     VRL:> println "Hello, Shell"
     Hello, Shell
@@ -105,6 +109,10 @@ To see which variables you defined, type `sh:variables`:
     -> a type = java.lang.Integer
     VRL:>
 
+## Using The History ##
+
+Sometimes you might want to repeat a previously executed command. By using the `Up` and `Down` arrow keys you can navigate through the history of shell commands.
+
 ## Built-In Constants ##
 
 The shell comes with several built-in constants. To see a list of them, type `sh:constants`:
@@ -128,15 +136,17 @@ The shell comes with several built-in constants. To see a list of them, type `sh
     -> out              type = eu.mihosoft.vrl.lang.ShellView$ShellViewPrintStream        
     VRL:>
 
-## Using The History ##
+If you want to debug VRL itself or just want to make use of its API these objects are good entry points to the most important features of VRL.
 
-Sometimes you might want to repeat a previouslyexecuted command. By using the `Up` and `Down` arrow keys you can navigate through the history of shell commands.
+## Using Project Classes ##
 
-
+The shell provides access to all classes that have been defined in the project, all classes provided by installed plugins and the complete API accessible via the system class loader. You can create instances, call methods etc. Just like you would do in the code editor. The only difference is that the shell executes everything interactively without compilation.
 
 ## Further Reading ##
 
 - [Debugging](debugging.html)
+
+[<- Back To Help Index](index.html)
 
 
 

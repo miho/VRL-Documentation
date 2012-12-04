@@ -19,9 +19,7 @@ In this tutorial you will learn how to
 - define control flows
 - define data flows
 
-## Difficulty Level##
-
-### Difficulty Level ###
+## Difficulty Level ##
 
 Beginner
 
@@ -193,7 +191,8 @@ After executing the workflow, the `getV()` method of the first *Counter* object 
 
 ## Further Reading ##
 
+
 - [Version Management](version-management.html)
 
 
-
+[<- Back To Help Index](index.html)

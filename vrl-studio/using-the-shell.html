@@ -34,6 +34,12 @@
 
 <p>The shell is an interactive command line interface that allows to control VRL-Studio.</p>
 
+<blockquote>
+<p><strong>WARNING</strong> The shell is great for experiments. It is a perfect calculator, can be used for debugging and exploration of the VRL API. But, <strong>it can also damage your project and other files on your computer</strong>. Freedom is responsibility! </p>
+
+<p>That said, have fun with the shell!</p>
+</blockquote>
+
 <h3 id="openingtheshell">Opening The Shell</h3>
 
 <p>Drag the ruler up to show the log/shell (see <a href="resources/img/show-shell-01.png">Show Shell</a>, 1.). Now click on the <code>Shell</code> tab to show the shell (see <a href="resources/img/show-shell-01.png">Show Shell</a>, 2.)</p>
@@ -89,7 +95,7 @@ VRL:&gt;
 
 <h2 id="executingcommands">Executing Commands</h2>
 
-<p>As a first example, type <code>println &quot;Hello, Shell&quot;</code>. And press <code>Enter</code>. It will show the following output:</p>
+<p>As a first example, type <code>println &quot;Hello, Shell&quot;</code> and press <code>Enter</code>. It will show the following output:</p>
 
 <pre><code>VRL:&gt; println &quot;Hello, Shell&quot;
 Hello, Shell
@@ -119,6 +125,10 @@ VRL:&gt;
 VRL:&gt;
 </code></pre>
 
+<h2 id="usingthehistory">Using The History</h2>
+
+<p>Sometimes you might want to repeat a previously executed command. By using the <code>Up</code> and <code>Down</code> arrow keys you can navigate through the history of shell commands.</p>
+
 <h2 id="built-inconstants">Built-In Constants</h2>
 
 <p>The shell comes with several built-in constants. To see a list of them, type <code>sh:constants</code>:</p>
@@ -143,14 +153,18 @@ VRL:&gt;
 VRL:&gt;
 </code></pre>
 
-<h2 id="usingthehistory">Using The History</h2>
+<p>If you want to debug VRL itself or just want to make use of its API these objects are good entry points to the most important features of VRL.</p>
 
-<p>Sometimes you might want to repeat a previouslyexecuted command. By using the <code>Up</code> and <code>Down</code> arrow keys you can navigate through the history of shell commands.</p>
+<h2 id="usingprojectclasses">Using Project Classes</h2>
+
+<p>The shell provides access to all classes that have been defined in the project, all classes provided by installed plugins and the complete API accessible via the system class loader. You can create instances, call methods etc. Just like you would do in the code editor. The only difference is that the shell executes everything interactively without compilation.</p>
 
 <h2 id="furtherreading">Further Reading</h2>
 
 <ul>
 <li><a href="debugging.html">Debugging</a></li>
 </ul>
+
+<p><a href="index.html">&lt;- Back To Help Index</a></p>
 </body>
 </html>
