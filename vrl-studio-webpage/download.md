@@ -45,6 +45,16 @@ Computing and Visualization in Science, 2011, in press.
 
 # Download #
 
+## VRL-Studio v0.4.4.3 (2012/12/04)##
+
+- [Linux](http://vrl-studio.mihosoft.eu/releases/v0.4.4.3/VRL-Studio-v0.4.4.3-Linux.zip)* (tested on openSUSE 12.2)
+- [Mac OS X](http://vrl-studio.mihosoft.eu/releases/v0.4.4.3/VRL-Studio-v0.4.4.3-OSX.zip) (tested on 10.6, 10.7, 10.8)
+- [Windows](http://vrl-studio.mihosoft.eu/releases/v0.4.4.3/VRL-Studio-v0.4.4.3-Windows.zip)** (tested on XP, 7, 8)
+
+> __*__ We cannot support all flavours of Linux because of binary incompatibilities between different distributions. Widely used distributions such as Debian, Ubuntu, Fedora and openSUSE should work. Please make sure you have installed a recent version of your distribution (2011/2012).
+
+> __**__ Windows 8 support is experimental.
+
 ## VRL-Studio v0.4.4.2 (2012/11/19)##
 
 - [Linux](http://vrl-studio.mihosoft.eu/releases/v0.4.4.2/VRL-Studio-v0.4.4.2-Linux.zip)* (tested on openSUSE 12.2)
