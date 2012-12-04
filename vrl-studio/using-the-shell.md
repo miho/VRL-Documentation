@@ -4,7 +4,7 @@ CSS:	resources/css/vrl-documentation.css
 
 ## Requirements ##
 
-- VRL-Studio >= 4.4.3
+- VRL-Studio >= 0.4.4.3
 - VRL >= 0.4.2.7
 
 ## Depends On ##
