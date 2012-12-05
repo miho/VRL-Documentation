@@ -1,4 +1,5 @@
-CSS: resources/css/style.css
+CSS:	resources/css/style.css
+Title:	VRL-Studio
 
 <header></header>
 
