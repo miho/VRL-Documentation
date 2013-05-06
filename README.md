@@ -1,4 +1,4 @@
 VRL-Documentation
 =================
 
-Documentation for VRL and VRL-Studio abc
+Documentation for VRL and VRL-Studio a
