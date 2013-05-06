@@ -2,8 +2,6 @@ CSS:	resources/css/vrl-documentation.css
 
 # Using The Shell #
 
-A test 123
-
 ## Requirements ##
 
 - VRL-Studio >= 0.4.4.3
