@@ -2,7 +2,6 @@ CSS:	resources/css/vrl-documentation.css
 
 # Using The Shell #
 
-test
 
 ## Requirements ##
 
