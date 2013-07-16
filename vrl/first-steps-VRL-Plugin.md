@@ -1,5 +1,9 @@
 CSS:        resources/css/vrl-documentation.css
 
+<!--VMM-INDEX=3-->
+
+
+
 # Your first steps before you start with the VRL - Plugin: #
 
 ## Contents ##
@@ -124,4 +128,14 @@ You need it in order to write your documentation.
 	 
 	 Example: `gcscuser06-iMac:~ user$ multimarkdown -o name.html -t html name.md`
 	
+
+
+
+
+##Further Reading
+
+[Create your first VRL - Plugin](first-plugin.html)
+
+[<- Back To Help Index](index.html)
+
 

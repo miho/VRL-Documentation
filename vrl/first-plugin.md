@@ -1,5 +1,8 @@
 CSS:        resources/css/vrl-documentation.css
 
+<!--VMM-INDEX=2-->
+
+
 # Create your first VRL - Plugin #
 
 ## Content ##
@@ -225,6 +228,8 @@ This commands can help you:
 For other Git-Commands look here:  
 [Git Cheat Sheet](https://na1.salesforce.com/help/doc/en/salesforce_git_developer_cheatsheet.pdf)
 
+
+[<- Back To Help Index](index.html)
 
 
 
