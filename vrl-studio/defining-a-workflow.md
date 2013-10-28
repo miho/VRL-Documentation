@@ -191,7 +191,7 @@ After executing the workflow, the `getV()` method of the first *Counter* object 
 
 ## Further Reading ##
 
-
+- [Introduction To Type Representations](introduction-to-type-representations.html)
 - [Version Management](version-management.html)
 
 

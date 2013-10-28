@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/vrl-documentation.css"/>
+</head>
+<body>
+
+<h1 id="introductiontotyperepresentations">Introduction To Type Representations</h1>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+<li>VRL-Studio &gt;= 4.5.x</li>
+<li>VRL &gt;= 0.4.2.x</li>
+</ul>
+
+<h2 id="dependson">Depends on</h2>
+
+<p><a href="what-is-vrl-studio.html">What Is VRL-Studio?</a></p>
+
+<p><a href="defining-a-workflow.html">Defining a Workflow</a></p>
+
+<h2 id="contents">Contents</h2>
+
+<p>In this tutorial you will learn what type representations are and how to</p>
+
+<ul>
+<li>select between different type presentations</li>
+<li>customize type representations</li>
+</ul>
+
+<h2 id="difficultylevel">Difficulty Level</h2>
+
+<p>Intermediate</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>If you are not interested in the explanation of type representations, you may skip the introduction and continue with <a href="#choosingtyperepresentations">Choosing Type Representations</a>.</p>
+
+<p>As already explained in <a href="what-is-vrl-studio.html">What Is VRL-Studio?</a> VRL provides three types of visual components (see Figure <a href="resources/img/component-types01.png">Component Types</a>) . This introduction is about parameter visualizations, i.e., type representations.</p>
+
+<figure>
+<img src="resources/img/component-types01.png" alt="Component Types" id="componenttypes" style="width:450px;" />
+<figcaption>Component Types</figcaption></figure>
+
+<p>Type representations are the most individual part of the VRL GUI generation. Method representations and Object representations are mainly containers and the possibilities to customize their appearance are rather limited. Type representations however are individual representations of parameters and return values.</p>
+
+<h2 id="choosingtyperepresentations">Choosing Type Representations</h2>
+
+<p>For each parameter type several type representations can be registered. In the case of <code>Integer</code> VRL provides </p>
+
+<ul>
+<li>textfields</li>
+<li>sliders</li>
+</ul>
+
+<h2 id="availabletyperepresentations">Available Type Representations</h2>
+
+<p>VRL provides type representations for a variety of types, such as</p>
+
+<ul>
+<li>java.lang.Short (<a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/NumberBasedTypeRepresentation.html">API doc</a>)</li>
+<li>java.lang.Integer (<a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/NumberBasedTypeRepresentation.html">API doc</a>, <a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/IntSliderType.html">Slider Type</a>)</li>
+<li>java.lang.Long (<a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/NumberBasedTypeRepresentation.html">API doc</a>)</li>
+<li>java.lang.Float (<a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/NumberBasedTypeRepresentation.html">API doc</a>)</li>
+<li>java.lang.Double (<a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/NumberBasedTypeRepresentation.html">API doc</a>)</li>
+<li>java.lang.String (<a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/StringType.html">API doc</a>, <a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/InputTextType.html">Text Input Type</a>)</li>
+<li>java.lang.Boolean</li>
+<li>java.awt.Image</li>
+<li>java.io.File</li>
+<li>&#8230;</li>
+</ul>
+
+<p>In addition many plugins provide their own type representations.</p>
+
+<blockquote>
+<p><strong>NOTE:</strong> Check the <a href="http://vrl.mihosoft.eu/api-doc/latest/eu/mihosoft/vrl/types/package-summary.html">API doc</a> for a complete list of supported types.</p>
+</blockquote>
+
+<h3 id="codeexample">Code Example</h3>
+
+<p>In the following example we will change the default type representation of a method parameter.</p>
+
+<p>The code below defines a simple Groovy class that provides a method which adds two integer values.</p>
+
+<pre><code>@ComponentInfo(name=AddIntegers, category=&quot;Custom&quot;)
+class AddIntegers {
+    public Integer add( Integer a , Integer b) {
+        return a+b;
+    }
+}
+</code></pre>
+
+<p>The default visualization is shown in Figure <a href="resources/img/add-integers-01.png">Add Integers</a>.</p>
+
+<figure>
+<img src="resources/img/add-integers-01.png" alt="Add Integers" id="addintegers" style="width:450px;" />
+<figcaption>Add Integers</figcaption></figure>
+
+<h3 id="annotatingparameters">Annotating Parameters</h3>
+
+<p>To request a different type representation one can annotate the parameter with a so called <code>@ParamInfo</code>:</p>
+
+<pre><code>@ComponentInfo(name=AddIntegers, category=&quot;Custom&quot;)
+class AddIntegers {
+    public Integer add(
+        @ParamInfo(style=&quot;slider&quot;) Integer a, Integer b) {
+        return a+b;
+    }
+}
+</code></pre>
+
+<p>Figure <a href="resources/img/slider-type-representation-01.png">Choosing a Slider</a> shows the difference between the default visualization and the new example with the slider.</p>
+
+<figure>
+<img src="resources/img/slider-type-representation-01.png" alt="Choosing a Slider" id="choosingaslider" style="width:450px;" />
+<figcaption>Choosing a Slider</figcaption></figure>
+
+<blockquote>
+<p><strong>NOTE:</strong> for an introduction to Java annotations consult the official documentation: <a href="http://docs.oracle.com/javase/tutorial/java/annotations/">Annotation Tutorial (Oracle)</a></p>
+</blockquote>
+
+<h2 id="changingparameteroptions">Changing Parameter Options</h2>
+
+<p>In addition to selecting the type representation <code>@ParamInfo</code> can be used to specify</p>
+
+<ul>
+<li>the parameter name</li>
+<li>default value &amp; value range</li>
+<li>other options (depends on the type representation)</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<p>1.) Changing the parameter name:</p>
+
+<pre><code>@ComponentInfo(name=AddIntegers, category=&quot;Custom&quot;)
+class AddIntegers {
+    public Integer add(
+        @ParamInfo(name=&quot;My Name&quot;, style=&quot;slider&quot;) Integer a, Integer b) {
+        return a+b;
+    }
+}
+</code></pre>
+
+<p>2.) Defining <code>min=3 &amp; max=10</code>:</p>
+
+<pre><code>@ComponentInfo(name=AddIntegers, category=&quot;Custom&quot;)
+class AddIntegers {
+    public Integer add(
+        @ParamInfo(name=&quot;My Name&quot;, style=&quot;slider&quot;, options=&quot;min=3; max=10;&quot;) Integer a,
+        Integer b) {
+        return a+b;
+    }
+}
+</code></pre>
+
+<h2 id="furtherreading">Further Reading</h2>
+
+<p>&#8211;</p>
+
+<p><a href="index.html">&lt;- Back To Help Index</a></p>
+
+</body>
+</html>
