@@ -12,7 +12,7 @@ A VRL-Project is basically a Java Library (.jar-File) that contains visually def
 
 VRL-Studio is based on the Visual Reflection Library (VRL). VRL enables declarative and fully automated creation of graphical user interfaces from Java objects. To accomplish that, VRL uses the information accessible via the Java Reflection API.
 
-In addition to the automatic generation of user interfaces VRL-Studio supports the definition of *data-flow* and *control-flow* and allows fora certain degree of visual programming.
+In addition to the automatic generation of user interfaces VRL-Studio supports the definition of *data-flow* and *control-flow* and allows for a certain degree of visual programming.
 
 For text-based programming the language Groovy [^groovy] is used. It supports static typing, dynamic typing and meta programming. The syntax of Groovy is based on Java. Almost any Java code will just work without any changes. Even though Groovy is often used as scripting language, it provides a compiler that creates byte code that is fully compatible with the JVM. Therefore, Groovy classes are accessible via the Java Reflection API.
 
