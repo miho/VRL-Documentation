@@ -37,15 +37,16 @@ Beginner
 - `SHIFT-ENTER`: compile code
 - `CTRL-ALT-SPACE`: request auto-completion
 - `CTRL-F`: search & replace (replace `CTRL` with &#8984; on Mac OS X)
-- `CTRL-D`: comment selected code
-- `CTRL-T`: uncomment selected code
+- `CTRL-D`: comment selected code lines
+- `CTRL-T`: uncomment selected code lines
 - `CTRL-C`: copy selected text (replace `CTRL` with &#8984; on Mac OS X)
 - `CTRL-V`: paste text from system clipboard to the editor (replace `CTRL` with &#8984; on Mac OS X)
 - `CTRL-X`: cut selected text (replace `CTRL` with &#8984; on Mac OS X)
 
 ### Code Templates ###
 
-Code templates are activated by typing the short form, e.g., `sout` followed by `CTRL-ALT-SPACE`.
+Code templates are activated by typing the short form, e.g., `sout` followed by `CTRL-ALT-SPACE`. Currently,
+the following code templates are avialiable:
 
 - `sout`: `System.out.println()`
 
