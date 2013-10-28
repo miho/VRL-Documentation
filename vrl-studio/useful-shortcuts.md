@@ -45,6 +45,8 @@ Beginner
 
 ### Code Templates ###
 
+Code templates are activated by typing the short form, e.g., `sout` followed by `CTRL-ALT-SPACE`.
+
 - `sout`: `System.out.println()`
 
 - `fori`: `for (int i = 0; i < n; i++) {` (also works with `j`, `k`, `x`, `y`, `z`, `t`)
