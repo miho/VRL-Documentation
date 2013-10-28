@@ -1,5 +1,7 @@
 CSS:	resources/css/vrl-documentation.css
 
+<!--VMM-INDEX=3-->
+
 # Defining a Workflow #
 
 ## Requirements ##
