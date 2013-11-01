@@ -37,7 +37,7 @@ VRL-Studio project persistence heavily relies on binary object serialization[#Se
 
 Depending on the type representation parameters are serialized via XML or Base64 encoded binary serialization. Type representations may implement custom rules for choosing between XML based or Base64 based serialization depending on the data that shall be serialized.
 
-This tutorial will give useful hints on keeping the project size small. This highly influences the performance for I/O related tasks such as saving or loading projects.
+This tutorial will give useful hints on keeping the project size small. This highly influences the performance of I/O related tasks such as saving or loading projects.
 
 ## Transient Member Variables ##
 
