@@ -88,9 +88,9 @@ Code:
     	public void doSomething(
     	  @ParamInfo(options="") List<Integer> list1,                   // will be serialized
     	  @ParamInfo(options="serialization=false") List<Integer> list2 // will not be serialized
-    	) {
+        ) {
     	  // ...
-	}
+        }
     }
 
 
