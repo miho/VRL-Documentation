@@ -94,7 +94,7 @@ Code:
     }
 
 
-### Using @ObjectInfo to Skip Parameter Serialization for a Custom Class ###
+### Using @ObjectInfo To Skip Parameter Serialization For A Custom Class ###
 
 If the custom class extends a serializable class each parameter reference will be serialized. 
 
