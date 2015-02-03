@@ -43,7 +43,7 @@ This tutorial will give useful hints on keeping the project size small. This hig
 
 The binary object serialization provided by Java tries to serialize the complete object state, including member variables. In many cases however, it is not necessary to serialize member variables. Therefore, it is advised to not serialize member variables if possible. To request this, Java/Groovy provides the keyword `transient`.
 
->**NOTE:** member variables that are not serializable prevent the object from being serialized. If not sure whether a member variable is serializable the `transient` keyword should be used. Otherwise object visualizations may be automatically be removed when saving a project!
+>**NOTE:** member variables that are not serializable prevent the object from being serialized. If it is not clear whether a member variable is serializable the `transient` keyword should be used. Otherwise object visualizations may be automatically removed when saving a project!
 
 ### Example: ###
 
