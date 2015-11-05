@@ -35,7 +35,7 @@ Beginner
 
 ## Editor & Code ##
 - `SHIFT-ENTER`: compile code
-- `CTRL-ALT-SPACE`: request auto-completion (replace `ALT` with `SHIFT` on Mac OS X for VRL >=0.4.3)
+- `CTRL-ALT-SPACE`: request auto-completion
 - `CTRL-F`: search & replace (replace `CTRL` with &#8984; on Mac OS X)
 - `CTRL-D`: comment selected code lines
 - `CTRL-T`: uncomment selected code lines
@@ -45,7 +45,7 @@ Beginner
 
 ### Code Templates ###
 
-Code templates are activated by typing the short form, e.g., `sout` followed by `CTRL-ALT-SPACE` (replace `ALT` with `SHIFT` on Mac OS X for VRL >=0.4.3). Currently,
+Code templates are activated by typing the short form, e.g., `sout` followed by `CTRL-ALT-SPACE`. Currently,
 the following code templates are avialiable:
 
 - `sout`: `System.out.println()`
