@@ -43,7 +43,7 @@ and control flow connections (see Figure [Control Flow Connection]).
 
 ### Data Flow ###
 
-A data flow connection describes the data dependencies between methods. Figure [Data Flow Connection] shows two components. Each of them has one method. A control flow connection indicates a data dependency between the two methods. Method `b()` of component 2 depends on the result of method `a()` of component 1.
+A data flow connection describes the data dependencies between methods. Figure [Data Flow Connection] shows two components. Each of them has one method. A data flow connection indicates a data dependency between the two methods. Method `b()` of component 2 depends on the result of method `a()` of component 1.
 
 If you are not familiar with the term *method* think of it as a specific task that takes some *input data* and produces *output data*.
 
